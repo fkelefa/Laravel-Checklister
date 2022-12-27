@@ -81,8 +81,8 @@
                                     <div class="mb-3">
                                         <label for="description" class="form-label">{{ __('Description') }}</label>
                                         <textarea class="form-control @error('decription') is_invalid  @enderror"
-                                            name="description" id="description"
-                                            rows="5">{{ old('description') }}</textarea>
+                                            name="description" rows="5"
+                                            id="task-textarea">{{ old('description') }}</textarea>
                                         @error('description') <div class="invalid-feedback d-block">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -99,4 +99,15 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#task-textarea' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
 @endsection
