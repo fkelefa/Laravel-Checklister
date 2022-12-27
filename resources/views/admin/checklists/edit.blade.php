@@ -54,36 +54,8 @@
 
                         <div class="tab-content rounded-bottom">
                             <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-512">
-                                <table class="table table-responsive-sm">
-                                    <tbody>
-                                        @foreach ($checklist->tasks as $key => $task)
-                                        <tr>
-                                            <th scope="row">{{ ++$key }}</th>
-                                            <td>{{ $task->task_name }}</td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <a href="{{ route('admin.checklists.tasks.edit', [$checklist, $task]) }}"
-                                                        class="btn btn-sm btn-outline-secondary">{{ __('Edit Task')}}
-                                                    </a>
+                                @livewire('tasks-table', ['checklist' => $checklist])
 
-                                                    <form
-                                                        action="{{ route('admin.checklists.tasks.destroy', [$checklist, $task]) }}"
-                                                        method="POST" class="">
-                                                        @csrf
-                                                        @method('DELETE')
-
-
-                                                        <button class="btn btn-outline-danger btn-sm" type="submit"
-                                                            onclick="return confirm('{{ __('Are you sure you want to delete this Task ?') }}')">{{
-                                                            __('Delete')
-                                                            }}</button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>
