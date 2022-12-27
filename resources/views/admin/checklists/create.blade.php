@@ -17,8 +17,9 @@
                                 <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1252">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">{{ __('Name') }}</label>
-                                        <input type="text" class="form-control @error('name') is_invalid  @enderror"
-                                            name="name" id="name" placeholder="{{ __('Cheklist Name') }}">
+                                        <input type="text" value="{{ old('name') }}"
+                                            class="form-control @error('name') is_invalid  @enderror" name="name"
+                                            id="name" placeholder="{{ __('Cheklist Name') }}">
                                         @error('name') <div class="invalid-feedback d-block">{{ $message }}</div>
                                         @enderror
                                     </div>

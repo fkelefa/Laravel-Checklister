@@ -36,7 +36,8 @@
                         @method('DELETE')
                         <div class="col-auto"></div>
                         <button class="btn btn-outline-danger mb-3" type="submit"
-                            onclick="return confirm('{{ __('Are you sure?') }}')">{{ __('Delete') }}</button>
+                            onclick="return confirm('{{ __('Are you sure you want to delete this checklist Group ?') }}')">{{
+                            __('Delete') }}</button>
                     </form>
                 </div>
             </div>

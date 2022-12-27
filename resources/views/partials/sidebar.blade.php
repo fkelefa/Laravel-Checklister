@@ -28,7 +28,7 @@
                 <use xlink:href="{{ asset('/vendors/@coreui/icons/svg/free.svg#cil-puzzle') }}"></use>
             </svg> {{ $group->name }}
         </a>
-        <ul class="nav-items">
+        <ul class="nav-group-items">
             @foreach($group->checklists as $checklist)
             <li class="nav-item"><a class="nav-link"
                     href="{{ route('admin.checklist_groups.checklists.edit', [$group, $checklist]) }}"><span
