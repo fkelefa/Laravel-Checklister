@@ -22,7 +22,7 @@ class ChecklistController extends Controller
     public function store(StoreChecklistRequest $request, ChecklistGroup $checklistGroup): RedirectResponse
     {
         $checklistGroup->checklists()->create($request->validated());
-        return redirect()->route('home');
+        return redirect()->route('welcome');
     }
 
 
@@ -36,13 +36,13 @@ class ChecklistController extends Controller
     {
         $checklist->update($request->validated());
 
-        return redirect()->route('home');
+        return redirect()->route('welcome');
     }
 
     public function destroy(ChecklistGroup $checklistGroup, Checklist $checklist): RedirectResponse
     {
         $checklist->delete();
 
-        return redirect()->route('home');
+        return redirect()->route('welcome');
     }
 }
