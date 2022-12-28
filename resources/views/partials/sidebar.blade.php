@@ -12,16 +12,8 @@
                 <use xlink:href="{{ asset('/vendors/@coreui/icons/svg/free.svg#cil-speedometer') }}"></use>
             </svg> {{ __('Dashboard') }}</a></li>
     @if (auth()->user()->is_admin)
-    <li class="nav-title">{{ __('Admin') }}</li>
-    <li class="nav-group"><a class="nav-link " href="{{ route('admin.pages.index') }}">
-            <svg class="nav-icon">
-                <use xlink:href="{{ asset('/vendors/@coreui/icons/svg/free.svg#cil-puzzle') }}"></use>
-            </svg> {{ __('Pages') }}
-        </a>
-    </li>
-
     <li class="nav-title">{{ __('Manage Checklists') }}</li>
-    @foreach( App\Models\ChecklistGroup::with('checklists')->get() as $group)
+    @foreach( \App\Models\ChecklistGroup::with('checklists')->get() as $group)
 
     <li class="nav-group"><a class="nav-link" href="{{ route('admin.checklist_groups.edit', $group) }}">
             <svg class="nav-icon">
@@ -49,21 +41,20 @@
     <li class="nav-item">
         <a href="{{ route('admin.checklist_groups.create') }}" class="nav-link">{{ __('New Checklist group ') }}</a>
     </li>
-    @endif
 
-    <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+    <li class="nav-title">{{ __('Pages') }}</li>
+    @foreach( \App\Models\Page::all() as $page)
+    <li class="nav-group">
+        <a class="nav-link " href="{{ route('admin.pages.edit', $page) }}">
             <svg class="nav-icon">
                 <use xlink:href="{{ asset('/vendors/@coreui/icons/svg/free.svg#cil-puzzle') }}"></use>
-            </svg> Base</a>
-        <ul class="nav-group-items">
-            <li class="nav-item"><a class="nav-link" href="base/accordion.html"><span class="nav-icon"></span>
-                    Accordion</a></li>
-
-        </ul>
+            </svg> {{ $page->title }}
+        </a>
     </li>
+    @endforeach
+    @endif
 
-
-
+    <li class="nav-title">{{ __('Others') }}</li>
     <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
             <svg class="nav-icon">
