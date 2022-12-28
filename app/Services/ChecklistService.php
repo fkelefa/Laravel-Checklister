@@ -10,7 +10,7 @@ class ChecklistService
     public function sync_checklist(Checklist $checklist, int $user_id): Checklist
     {
 
-        return Checklist::firstOrcreate(
+        return Checklist::firstOrCreate(
             [
                 'user_id' => $user_id,
                 'checklist_id' => $checklist->id,
