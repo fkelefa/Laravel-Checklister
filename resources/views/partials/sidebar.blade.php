@@ -29,7 +29,8 @@
 
             <li class="nav-item">
                 <a href="{{ route('admin.checklist_groups.checklists.create', $group) }}" class="nav-link">{{ __('New
-                    Checklist') }}</a>
+                    Checklist') }}
+                </a>
             </li>
         </ul>
 
@@ -49,19 +50,16 @@
         </a>
     </li>
     @endforeach
-    @endif
 
-    <li class="nav-title">{{ __('Others') }}</li>
-    <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+    <li class="nav-title">{{ __('Manage Data') }}</li>
+    <li class="nav-item">
+        <a class="nav-link " href="{{ route('admin.users.index') }}">
             <svg class="nav-icon">
-                <use xlink:href="{{ asset('/vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}"></use>
-            </svg> {{ __('Logout') }}
+                <use xlink:href="{{ asset('/vendors/@coreui/icons/svg/free.svg#cil-puzzle') }}"></use>
+            </svg> {{ __('Users') }}
         </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
     </li>
 
+    @endif
 </ul>
 <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
