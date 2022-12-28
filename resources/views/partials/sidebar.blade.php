@@ -7,10 +7,7 @@
     </svg>
 </div>
 <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">
-            <svg class="nav-icon">
-                <use xlink:href="{{ asset('/vendors/@coreui/icons/svg/free.svg#cil-speedometer') }}"></use>
-            </svg> {{ __('Dashboard') }}</a></li>
+
     @if (auth()->user()->is_admin)
     <li class="nav-title">{{ __('Manage Checklists') }}</li>
     @foreach( \App\Models\ChecklistGroup::with('checklists')->get() as $group)
