@@ -11,10 +11,11 @@
                     </div>
                     <div class="card-body">
                         <table class="table table-hover">
-                            @foreach ($checklist->tasks as $task)
+                            @foreach ($checklist->tasks as $key => $task)
                             <tr>
-                                <td></td>
-                                <td class="task-description-toggle" data-id="{{ $task->id }}">{{ $task->task_name }}
+                                <td>{{ ++$key }}</td>
+                                <td class="task-description-toggle" data-id="{{ $task->id }}"><strong>{{
+                                        $task->task_name }}</strong>
                                 </td>
                                 <td>
                                     <svg id="task-caret-top-{{ $task->id }}" class="icon icon-lg me-2">
@@ -32,7 +33,7 @@
                             </tr>
                             <tr class="d-none" id="task-description-{{ $task->id }}">
                                 <td></td>
-                                <td colspan="2">{!! $task->description !!}</td>
+                                <td class="me-2" colspan="2">{!! $task->description !!}</td>
                             </tr>
 
                             @endforeach
